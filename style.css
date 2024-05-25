@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    display: flex;
+    background-color: #15470D;
+    
+    
+}
+
+.banner #vech {
+    display: block;
+    mix-blend-mode: multiply;
+    width: 290px;
+    margin-left: 180px;
+    
+}
+
+#left img {
+    width: 500px;
+    margin-left: 20px;
+}
+
+#center {
+    flex-grow: 1; 
+}
+
+#center p {
+    margin: 10px 0 0 200px;
+    font-family: "Poetsen One", sans-serif;
+    font-size: 80px;
+    color: whitesmoke;
+    text-shadow: 7px 7px 0px #15470D, 15px 15px #142a00;
+}
+
+#center small {
+    display: block;
+    font-size: 25px;
+    font-family: "Poetsen One", sans-serif;
+    color: whitesmoke;
+    margin: 5px 0 0 200px;
+}
+
+#right {
+    margin-left: 20px;
+    margin-right: 40px; 
+}
+
+#right p {
+    font-family: "Poetsen One", sans-serif;
+    font-size: 40px;
+    color: #ffd900;
+    margin: 10px 0 0 400px;
+
+}
+
+#right small {
+    display: block;
+    font-size: 25px;
+    font-family: "Poetsen One", sans-serif;
+    color: whitesmoke;
+    margin: 5px 0 0 400px;
+}
+
+#right .rightImg {
+    display: inline-block;
+    margin: 10px 0 0 400px; 
+}
+.fa-square-facebook,.fa-instagram,.fa-cart-shopping{
+    font-size: 50px;
+    margin-right: 25px;
+}
+
+.navigation{
+    display: flex;
+    justify-content: space-around;
+    background-color: #03b57b;
+    width: 100%;
+    
+    position: fixed;
+}
+.navigation a{
+    text-decoration: none;
+    font-size: 35px;
+    font-family: "Poetsen One", sans-serif;
+    font-style: normal;
+    color: #ffd900;
+    padding: 25px;
+    
+}
+.navigation a:hover{
+    background-color: black;
+}
+
