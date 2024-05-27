@@ -1,0 +1,260 @@
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transformers Login Form</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrapper">
+    <form id="loginForm">
+        <h6>Transform your vehicle.</h6>
+      <h2>Login</h2>
+        <div class="input-field">
+        <input type="text" id="email" required>
+        <label>Enter your email</label>
+      </div>
+      <div class="input-field">
+        <input type="password" id="pass" required>
+        <label>Enter your password</label>
+      </div>
+      <div class="forget">
+        <label for="remember">
+          <input type="checkbox" id="remember">
+          <p>Remember me</p>
+        </label>
+        <a href="#">Forgot password?</a>
+      </div>
+      <button type="submit">Log In</button>
+      <div class="register">
+        <p>Don't have an account? <a href="#">Register</a></p>
+      </div>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
+styles.css
+  @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 10px;
+  
+  position: relative; /* Ensure the pseudo-element can be positioned */
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image:url('car.jpg'); /* Use relative path */
+  background-position: center;
+  background-size: cover;
+  z-index: -1; /* Ensure the pseudo-element stays in the background */
+}
+
+.wrapper {
+  width: 400px;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+h6 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #c0c0b6;
+  }
+
+.input-field {
+  position: relative;
+  border-bottom: 2px solid #ccc;
+  margin: 15px 0;
+}
+
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.15s ease;
+}
+
+.input-field input {
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #fff;
+}
+
+.input-field input:focus~label,
+.input-field input:valid~label {
+  font-size: 0.8rem;
+  top: 10px;
+  transform: translateY(-120%);
+}
+
+.forget {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 25px 0 35px 0;
+  color: #fff;
+}
+
+#remember {
+  accent-color: #fff;
+}
+
+.forget label {
+  display: flex;
+  align-items: center;
+}
+
+.forget label p {
+  margin-left: 8px;
+}
+
+.wrapper a {
+  color: #efefef;
+  text-decoration: none;
+}
+
+.wrapper a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  color: #fff;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.register {
+  text-align: center;
+  margin-top: 30px;
+  color: #fff;
+}
+
+script.js
+  document.getElementById('loginForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevents form from submitting
+  const email = document.getElementById('email').value;
+  const pass = document.getElementById('pass').value;
+
+  if (email === "" || !email.includes('@')) {
+      alert("Please enter a valid email");
+      document.getElementById('email').focus();
+      document.getElementById('email').style.border = "solid 3px red";
+      return false;
+  }
+
+  if (pass === "" || pass.length < 6) {
+      alert("Please enter a valid password that has at least 6 characters and symbols");
+      document.getElementById('pass').focus();
+      document.getElementById('pass').style.border = "solid 3px red";
+      return false;
+  }
+
+  func();
+});
+
+function func() {
+  const email = document.getElementById('email').value;
+  const pass = document.getElementById('pass').value;
+  if (email === 'customer01@gmail.com' && pass === '123456') {
+      alert("Login successful. You are being redirected to another webpage.");
+      window.location.assign("welcome.html");
+  } else {
+      alert("Login failed. Please try again.");
+  }
+}
+
+welcome.html
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trial</title>
+  <style>
+    .square-container {
+      width: 600px; /* Adjust to your desired size */
+      height: 700px; /* Ensure height is equal to width */
+      display:flex;
+      justify-content: center;
+      align-items:center;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+      background-position: center;
+    }
+    .square-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Maintains aspect ratio and covers the container */
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+    <h2>Welcome people</h2>
+  <div class="square-container">
+    <img src="20240103_150704.jpg" alt="Stairway to Heaven">
+  </div>
+</body>
+</html>
+
+    
+  
